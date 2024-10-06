@@ -23,6 +23,49 @@ def verticalCheck():
             return True
     return False
 
+#Check Diagonal Winning Position
+def diagonalCheck():
+    #left to right diagonal check
+    flag=0
+    for i in range(3):
+        for j in range(3):
+            if(i==j):
+                if(mainboard[i][j]==mainboard[0][0] and mainboard[0][0]!=" "):
+                    pass
+                else:
+                    flag=1
+                    break
+            else:
+                continue
+        if(flag==1):
+            break
+    if(flag==0):
+        return True
+    #right to left diagonal check
+    flag=0
+    for i in range(3):
+        for j in range(3):
+            if(i+j==2):
+                if(mainboard[i][j]==mainboard[0][2] and mainboard[0][2]!=" "):
+                    pass
+                else:
+                    flag=1
+                    break
+        if(flag==1):
+            break
+    if(flag==0):
+        return True
+    else:
+        return False
+
+#Check Draw Status
+def drawCheck():
+    for i in range(3):
+        for j in range(3):
+            if(mainboard[i][j]==" "):
+                return False
+    return True
+
 #Position Input Check Function
 def inputcheck(position):
     l1=position.split(" ")
@@ -82,11 +125,14 @@ while (True):
     displayboard()
     print()
     # Winning Check (Horizontal Wins | Vertical Wins | Diagonal Wins | Draw Check)
-    if(horizontalCheck() or verticalCheck()):
+    if(horizontalCheck() or verticalCheck() or diagonalCheck()):
         if(flag==0):
             print(player1name,"Wins!")
         else:
             print(player2name,"Wins!")
+        break
+    elif(drawCheck()):
+        print("Its a DRAW! between %s and %s."%(player1name,player2name))
         break
     else:
         continue
