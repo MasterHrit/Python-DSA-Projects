@@ -1,6 +1,6 @@
-#Python Mini Project on Employee Management System.
+# Python Mini Project on Employee Management System.
 
-##Design an Employee Management System using Dictionary Storage and perform below operations:
+## Design an Employee Management System using Dictionary Storage and perform below operations:
 
 1. Insert Employee Record
 2. Display all Employee Records
