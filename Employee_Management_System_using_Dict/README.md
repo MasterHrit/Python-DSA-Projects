@@ -14,6 +14,6 @@
 **5. Delete Employee Records**
 
 **6. Exit**
-<br>
+<br><br>
 
 **Author - Hritik Kumar Agarwal**
