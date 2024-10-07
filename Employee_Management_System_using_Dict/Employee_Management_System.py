@@ -40,6 +40,7 @@ def DisplaySingleRecord(empid):
                     print("%-30d"%(j),end="")
                 else:
                     print("%-30s"%(j),end="")
+            print()
 
 #Search Employee Records
 def SearchEmployeeRecord():
@@ -55,11 +56,31 @@ def SearchEmployeeRecord():
 
 #Update Employee Record
 def UpdateEmployeeRecord():
-    pass
+    searchid=int(input("Enter the Employee ID to Update from the Record :"))
+    flag=0
+    for i in employee_record.items():
+        if(i[0]==searchid):
+            print("\nOld Record Value :")
+            DisplaySingleRecord(searchid)
+            name=input("\nEnter the New Employee Name :")
+            dept=input("Enter the New Employee Department :")
+            salary=int(input("Enter the New Employee Salary :"))
+            employee_record.update({searchid:{"Name":name.title(),"Dept":dept.title(), "Salary":salary}})
+            print(f"\nEmployee Record for ID {searchid} is Updated!\n")
+            flag=1
+    if(flag==0):
+        print(f"\nThe Employee ID {searchid} is not found!")
 
 #Delete Employee Record
 def DeleteEmployeeRecord():
-    pass
+    searchid=int(input("Enter the Employee ID to Delete from the Record :"))
+    if(searchid in employee_record.keys()):
+        print("\nBelow Employee Record will be Deleted from the Record :")
+        DisplaySingleRecord(searchid)
+        popvalue=employee_record.pop(searchid)
+        print(f"\nEmployee ID {searchid} has been Deleted from the Record Successfully!")
+    else:
+        print(f"\nThe Employee ID {searchid} is not found!")
 
 while True:
     print()
@@ -74,6 +95,7 @@ while True:
     print("6. Exit")
     print()
     choice=int(input("Enter your choice :"))
+    print()
     if(choice==1):
         InsertEmployeeRecord()
     elif(choice==2):
