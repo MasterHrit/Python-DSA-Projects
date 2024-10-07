@@ -1,6 +1,6 @@
 # Python Mini Project on Movie Ticket Booking System.
 
-### Design an Movie Ticket Booking System using Dictionary Storage:
+### Design an Movie Ticket Booking System using 2D List Storage:
 
 **Inputs:**
 ```
