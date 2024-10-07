@@ -8,38 +8,38 @@ def InsertEmployeeRecord():
     name=input("Enter the Employee Name :")
     dept=input("Enter the Employee Department :")
     salary=int(input("Enter the Employee Salary :"))
-    employee_record.update({id:{"Name":name,"Dept":dept, "Salary":salary}})
+    employee_record.update({id:{"Name":name.title(),"Dept":dept.title(), "Salary":salary}})
     print("\nEmployee Record Added!\n")
 
 #Display All Employee Records
 def DisplayAllRecords():
     print()
-    print("----------"*8)
-    print("%-20s%-20s%-20s%-20s"%("ID","Name","Department","Salary"))
-    print("----------"*8)
+    print("----------"*12)
+    print("%-30s%-30s%-30s%-30s"%("ID","Name","Department","Salary"))
+    print("----------"*12)
     for i in employee_record.items():
-        print("%-20d"%i[0],end="")
+        print("%-30d"%i[0],end="")
         for j in i[1].values():
             if(isinstance(j,int)):
-                print("%-20d"%(j),end="")
+                print("%-30d"%(j),end="")
             else:
-                print("%-20s"%(j),end="")
+                print("%-30s"%(j),end="")
         print()
 
 #Display Particular Record from ID
 def DisplaySingleRecord(empid):
     print()
-    print("----------"*8)
-    print("%-20s%-20s%-20s%-20s"%("ID","Name","Department","Salary"))
-    print("----------"*8)
+    print("----------"*12)
+    print("%-30s%-30s%-30s%-30s"%("ID","Name","Department","Salary"))
+    print("----------"*12)
     for i in employee_record.items():
         if(i[0]==empid):
-            print("%-20d"%i[0],end="")
+            print("%-30d"%i[0],end="")
             for j in i[1].values():
                 if(isinstance(j,int)):
-                    print("%-20d"%(j),end="")
+                    print("%-30d"%(j),end="")
                 else:
-                    print("%-20s"%(j),end="")
+                    print("%-30s"%(j),end="")
 
 #Search Employee Records
 def SearchEmployeeRecord():
@@ -63,9 +63,9 @@ def DeleteEmployeeRecord():
 
 while True:
     print()
-    print("----------"*8)
+    print("----------"*12)
     print("Employee Management System")
-    print("----------"*8)
+    print("----------"*12)
     print("1. Insert Employee Record")
     print("2. Display all Employee Records")
     print("3. Search Employee Records")
