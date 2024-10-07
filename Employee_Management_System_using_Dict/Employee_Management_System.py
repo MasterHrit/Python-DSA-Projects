@@ -26,9 +26,32 @@ def DisplayAllRecords():
                 print("%-20s"%(j),end="")
         print()
 
+#Display Particular Record from ID
+def DisplaySingleRecord(empid):
+    print()
+    print("----------"*8)
+    print("%-20s%-20s%-20s%-20s"%("ID","Name","Department","Salary"))
+    print("----------"*8)
+    for i in employee_record.items():
+        if(i[0]==empid):
+            print("%-20d"%i[0],end="")
+            for j in i[1].values():
+                if(isinstance(j,int)):
+                    print("%-20d"%(j),end="")
+                else:
+                    print("%-20s"%(j),end="")
+
 #Search Employee Records
 def SearchEmployeeRecord():
-    pass
+    searchid=int(input("Enter the Employee ID to Search in the Record :"))
+    flag=0
+    for i in employee_record.items():
+        if(i[0]==searchid):
+            print(f"\nEmployee ID {searchid} Found in the Record!")
+            DisplaySingleRecord(searchid)
+            flag=1
+    if(flag==0):
+        print(f"\nThe Employee ID {searchid} is not found!")
 
 #Update Employee Record
 def UpdateEmployeeRecord():
