@@ -14,6 +14,8 @@
 **5. Delete Employee Records**
 
 **6. Exit**
+
+**In the Employee Record we will maintain Employee ID, Name, Department and Salary.**
 <br><br>
 
 **Author - Hritik Kumar Agarwal**
