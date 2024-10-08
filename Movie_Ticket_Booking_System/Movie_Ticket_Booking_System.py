@@ -1,6 +1,6 @@
 #Movie Ticket Booking System using 1D List Storage
 seat_arrangement=[]
-#initializing the seat arrangement list
+#Initializing the seat arrangement list
 for i in range(1,51):
     seat_arrangement.append(str(i))
 
