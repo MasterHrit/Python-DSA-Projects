@@ -21,6 +21,9 @@ def BookSeats(n):
         seatnumber_list=seat.split(" ")
         for i in range(len(seatnumber_list)):
             seatnumber_list[i]=int(seatnumber_list[i])
+        if(len(seatnumber_list)!=n):
+            print("Wrong number of seats input! Please Try Again!")
+            continue
         for i in seatnumber_list:
             if (i>50 or i<1):
                 print("Wrong Input! Please Try Again!")
