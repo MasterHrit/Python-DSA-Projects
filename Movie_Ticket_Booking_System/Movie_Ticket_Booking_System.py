@@ -13,28 +13,6 @@ def DisplaySeats():
 
 #Book the seats
 def BookSeats(n):
-    '''i=1
-    l1=[]
-    while True:
-        flag=0
-        l1=[]
-        seat=input("Enter the seat numbers (space separated):")
-        seatnumber_list=seat.split(" ")
-        for i in range(len(seatnumber_list)):
-            flag=0
-            seatnumber_list[i]=int(seatnumber_list[i])
-            if(seatnumber_list[i]>50 or seatnumber_list[i]<1):
-                print("Wrong Input! Please Try Again!")
-                break
-            elif(seat_arrangement[seatnumber_list[i]-1]=="BK"):
-                print(f"(Seat {seatnumber_list[i]} is already booked! Please Try Again")
-                break
-        for i in range(len(seatnumber_list)):
-            l1.append(seatnumber_list[i])
-            seat_arrangement[seatnumber_list[i]-1]="BK"
-            flag=1
-        if(flag==1):
-            break'''
     l1=[]
     while True:
         l1=[]
