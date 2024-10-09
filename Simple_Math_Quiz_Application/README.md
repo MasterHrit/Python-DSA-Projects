@@ -1,6 +1,6 @@
 # Python Mini Project on Simple Math Quiz Application.
 
-### Design an Math Quiz Application that will take quiz on below mathematical operations :
+### Design an Math Quiz Application that will take quiz on below mathematical operations on 2 Digit Numbers:
 
 **1. Addition**
 
