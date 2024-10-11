@@ -6,13 +6,13 @@ class Employee:
         Name=None
         Department=None
         Salary=None
-
+#Input Employee Attributes
 def InputRecord(emp: Employee):
     emp.ID=int(input("Enter Employee ID :"))
     emp.Name=input("Enter Employee Name :")
     emp.Department=input("Enter Employee Department :")
     emp.Salary=int(input("Enter Employee Salary :"))
-
+#Inserting the Employee Attributes to Text File
 def InsertRecord():
     Emp=Employee()
     InputRecord(Emp)
@@ -20,7 +20,7 @@ def InsertRecord():
         outputstream="%d,%s,%s,%d\n"%(Emp.ID,Emp.Name,Emp.Department,Emp.Salary)
         fileobject.write(outputstream)
     print("\nRecord Entry Added to Database!")
-
+#Display Records from the Text File
 def DisplayRecords():
     with open("employee_details.txt","r") as fileobject:
         data=fileobject.readlines()
@@ -33,7 +33,7 @@ def DisplayRecords():
                     j=j[:len(j)-1]
                 print("%-30s"%(j),end="")
             print()
-
+#Search a Record from the Text File
 def SearchRecord():
     pass
 def UpdateRecord():
