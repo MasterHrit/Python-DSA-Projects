@@ -1,8 +1,6 @@
-105,Hritik,Dev,70000
-106,Sam,SAP,50000
-101,Harit,Business,90000
 107,Andy,SAP Basis,60000
-108,Rohit,Cricket,100000
 109,Virat Kohli,IPL,150000
 505,Andrew,TOP G,500000
-101,Tate,TOPGG,600000
+101,Harit,Business,700000
+205,Hritik Agarwal,Python DEV,80000
+102,Samsung,Mobile,70000

@@ -9,13 +9,16 @@ class Employee:
         self.Department: str=Department
         self.Salary: int=Salary
 #Input Employee Attributes
-def InputRecord() -> Employee:
+def InputRecord(id: int=-1) -> Employee:
     """InputRecord Function to take Employee Parameter input and store it in Employee Class
 
     Returns:
         Employee: Employe Class
     """
-    ID=int(input("Enter Employee ID :"))
+    if(id==-1):
+        ID=int(input("Enter Employee ID :"))
+    else:
+        ID: int=id
     Name: str=input("Enter Employee Name :")
     Department: str=input("Enter Employee Department :")
     Salary=int(input("Enter Employee Salary :"))
@@ -72,9 +75,52 @@ def SearchRecord() -> None:
             print(f"\nID {searchid} not found!")
 
 def UpdateRecord() -> None:
-    pass
+    """UpdateRecord Function to Update a particular Employee Record based on Employee ID
+    """
+    searchid=int(input("Enter the Employee ID to update :"))
+    data: list[str]=[]
+    with open("employee_details.txt","r+") as fileobject:
+        index: int=-1
+        data=fileobject.readlines()
+        for i in data:
+            wordlist: list[str]=i.split(",")
+            if(int(wordlist[0])==searchid):
+                index=data.index(i)
+        if(index==-1):
+            print("No such element found!")
+        else:
+            data.pop(index)
+    with open("employee_details.txt","w+") as fileobject:
+        for i in data:
+            fileobject.write(i)
+    with open("employee_details.txt","a+") as fileobject:
+        print("Enter the new values for the Employee ")
+        Emp: Employee=InputRecord(searchid)
+        outputstream: str="%d,%s,%s,%d\n"%(Emp.ID,Emp.Name,Emp.Department,Emp.Salary)
+        fileobject.write(outputstream)
+        print("\nRecord Entry Updated in the Database!")
+
 def DeleteRecord() -> None:
-    pass
+    """DeleteRecord Function to Delete the Employee Record based on the Employee ID
+    """
+    searchid=int(input("Enter the Employee ID to delete :"))
+    data: list[str]=[]
+    with open("employee_details.txt","r+") as fileobject:
+        index: int=-1
+        data=fileobject.readlines()
+        for i in data:
+            wordlist: list[str]=i.split(",")
+            if(int(wordlist[0])==searchid):
+                index=data.index(i)
+        if(index==-1):
+            print("No such element found!")
+        else:
+            data.pop(index)
+            print(f"\nThe Record with ID {searchid} is deleted Successfully!")
+    with open("employee_details.txt","w+") as fileobject:
+        for i in data:
+            fileobject.write(i)
+
 def main() -> None:
     while True:
         print()
