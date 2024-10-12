@@ -1,17 +1,27 @@
 #Tic-Tac-Toe Game in Python
 
 #Taking a 2-D List to store the X and O
-mainboard=[[" "," "," "],[" "," "," "],[" "," "," "]]
+mainboard: list[list[str]]=[[" "," "," "],[" "," "," "],[" "," "," "]]
 
 #Check Horizontal Winning Position
-def horizontalCheck():
+def horizontalCheck() -> bool:
+    """horizontalCheck Check Horizontal Winning Condition
+
+    Returns:
+        bool: If getting a horizontal win then returns True else returns False
+    """
     for i in range(len(mainboard)):
         if(mainboard[i].count(mainboard[i][0])==3 and mainboard[i][0]!=" "):
             return True
     return False
 
 #Check Vertical Winning Position
-def verticalCheck():
+def verticalCheck() -> bool:
+    """verticalCheck Check Vertical Winning Condition
+
+    Returns:
+        bool: If getting a vertical win then returns True else returns False
+    """
     for i in range(len(mainboard[0])):
         flag=0
         for j in range(3):
@@ -24,7 +34,12 @@ def verticalCheck():
     return False
 
 #Check Diagonal Winning Position
-def diagonalCheck():
+def diagonalCheck() -> bool:
+    """diagonalCheck Perform Winning Condition Check for Diagonals
+
+    Returns:
+        bool: If Winning in left to right or vice versa diagonals then return True else return False
+    """
     #left to right diagonal check
     flag=0
     for i in range(3):
@@ -59,7 +74,12 @@ def diagonalCheck():
         return False
 
 #Check Draw Status
-def drawCheck():
+def drawCheck() -> bool:
+    """drawCheck This Function is to check the DRAW condition for the game
+
+    Returns:
+        bool: If there are no position to fill in the main board then it results in draw condition hence returns True otherwise it returns False
+    """
     for i in range(3):
         for j in range(3):
             if(mainboard[i][j]==" "):
@@ -67,8 +87,17 @@ def drawCheck():
     return True
 
 #Position Input Check Function
-def inputcheck(position):
-    l1=position.split(" ")
+def inputcheck(position: str) -> bool:
+    """inputcheck Perform InputCheck for the Position
+
+    Args:
+        position (str): Position string for input to mainboard
+
+    Returns:
+        bool: returns True if the input position is correct and falls on the board position range
+              returns False if the input position is not correct or the position is already filled.
+    """
+    l1: list[str]=position.split(" ")
     for i in l1:
         if(int(i)>3 or int(i)<1):
             return True
@@ -77,12 +106,20 @@ def inputcheck(position):
     return False
 
 #Place the Sign in the Board
-def placesign(position, sign):
-    l1=position.split(" ")
+def placesign(position: str, sign: str) -> None:
+    """placesign This Function is used to input the Player Sign to mainboard
+
+    Args:
+        position (str): Position string to input in mainboard
+        sign (str): Character to input in the mainboard
+    """
+    l1: list[str]=position.split(" ")
     mainboard[int(l1[0])-1][int(l1[1])-1]=sign
 
 #Printing the Board
-def displayboard():
+def displayboard() -> None:
+    """displayboard This Function is created to Display the MainBoard
+    """
     for i in range(len(mainboard)):
         for j in mainboard[i]:
             print(j," | ",sep="",end="")
@@ -105,18 +142,18 @@ for i in range(1,4):
         print("\b\b ")
 print("\nEnjoy the game !!")
 print("-----------------------------")
-player1name=input("Enter Player 1 Name :")
-player2name=input("Enter Player 2 Name :")
+player1name: str=input("Enter Player 1 Name :")
+player2name: str=input("Enter Player 2 Name :")
 flag=1
 while (True):
     if (flag==1):
-        player1=input("\n"+player1name+"'s Turn, Enter the position in the board for \" X \" :")
+        player1: str=input("\n"+player1name+"'s Turn, Enter the position in the board for \" X \" :")
         while(inputcheck(player1)):
             player1=input("Wrong Position Entered !!\nEnter the position again in the board for \" X \" :")
         placesign(player1,"X")
         flag=0
     else:
-        player2=input("\n"+player2name+"'s Turn, Enter the position in the board for \" O \" :")
+        player2: str=input("\n"+player2name+"'s Turn, Enter the position in the board for \" O \" :")
         while(inputcheck(player2)):
             player2=input("Wrong Position Entered !!\nEnter the position again in the board for \" O \" :")
         placesign(player2,"O")
