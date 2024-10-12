@@ -48,6 +48,8 @@ def DisplayRecords() -> None:
             print()
 #Search a Record from the Text File
 def SearchRecord() -> None:
+    """SearchRecord Function to search particular Employee ID in the Record
+    """
     searchid: int=int(input("Enter the Employee ID to search :"))
     with open("employee_details.txt","r") as fileobject:
         flag=0
