@@ -48,7 +48,27 @@ def DisplayRecords() -> None:
             print()
 #Search a Record from the Text File
 def SearchRecord() -> None:
-    pass
+    searchid: int=int(input("Enter the Employee ID to search :"))
+    with open("employee_details.txt","r") as fileobject:
+        flag=0
+        data: list[str]=fileobject.readlines()
+        count=0
+        for i in data:
+            entrylist: list[str]=i.split(",")
+            if(searchid==int(entrylist[0])):
+                if(count==0):
+                    print("%-30s%-30s%-30s%-30s"%("ID","Name","Department","Salary"))
+                    print("----------"*12)
+                    count+=1
+                flag=1
+                for j in entrylist:
+                    if(j.endswith("\n")):
+                        j: str=j[:len(j)-1]
+                    print("%-30s"%(j),end="")
+                print()
+        if(flag==0):
+            print(f"\nID {searchid} not found!")
+
 def UpdateRecord() -> None:
     pass
 def DeleteRecord() -> None:

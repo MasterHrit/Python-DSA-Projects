@@ -4,3 +4,5 @@
 107,Andy,SAP Basis,60000
 108,Rohit,Cricket,100000
 109,Virat Kohli,IPL,150000
+505,Andrew,TOP G,500000
+101,Tate,TOPGG,600000
